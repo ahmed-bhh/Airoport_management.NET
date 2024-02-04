@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AM.UI.Console
-build_property.ProjectDir = C:\Users\ahmed\source\repos\AiroportManagement\AM.UI.Console\
+build_property.ProjectDir = C:\Users\ahmed\Documents\GitHub\Airoport_management.NET\AiroportManagement\AM.UI.Console\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
