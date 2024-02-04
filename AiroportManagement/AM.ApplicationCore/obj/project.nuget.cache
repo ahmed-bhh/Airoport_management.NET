@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "X1qG+eEq/USwAY/+dj0zfm+4PkCJMMbrls3R/VcosDNihT5C/3uAXqp3N6b9OwyCzHhg6u0P2E/vrNZHUbU3fQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ahmed\\source\\repos\\AiroportManagement\\AM.ApplicationCore\\AM.ApplicationCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.15\\microsoft.windowsdesktop.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.15\\microsoft.netcore.app.ref.7.0.15.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.15\\microsoft.aspnetcore.app.ref.7.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}
