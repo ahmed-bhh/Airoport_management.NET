@@ -18,6 +18,6 @@ namespace AM.ApplicationCore.Domain
 
         public string PhoneNumber { get; set; }
 
-        public ICollection<Flight> Flights { get; set; }
+        public List<Flight> Flights { get; set; }
     }
 }

@@ -22,11 +22,17 @@ namespace AM.ApplicationCore.Domain
 
         public PlaneType PlaneType { get; set; }
 
-        public ICollection<Flight> Flights { get; set;}
+        public List<Flight> Flights { get; set;}
 
-        
-        
-        
+        public override string ToString()
+        {
+            return "Capacity="+Capacity+"  manufacturedate="+ManufactureDate
+                ;
+        }
+
+
+
+
 
     }
 }

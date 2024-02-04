@@ -21,7 +21,7 @@ namespace AM.ApplicationCore.Domain
 
         public int EstimatedDuration { get; set; }
 
-        public ICollection<Passenger> Passengers { get; set; }
+        public List<Passenger> Passengers { get; set; }
 
         public Plane plane { get; set; }
     }
