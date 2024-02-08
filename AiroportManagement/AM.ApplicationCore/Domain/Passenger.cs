@@ -9,9 +9,9 @@ namespace AM.ApplicationCore.Domain
     public class Passenger
     {
         public string PassportNumber { get; set; }
-        public string FirsttName { get; set;}
+        public string FirstName { get; set;}
 
-        public string LasttName { get; set;}
+        public string LastName { get; set;}
         public DateTime BirthDate { get; set; }
 
         public string EmailAdress {  get; set; }

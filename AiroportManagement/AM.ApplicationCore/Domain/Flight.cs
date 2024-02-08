@@ -13,7 +13,7 @@ namespace AM.ApplicationCore.Domain
         public int FlightId { get; set; }
         public string Destination { get; set; }
 
-        public string Dparture { get; set; }
+        public string Departure { get; set; }
 
         public DateTime FlightDate { get; set; }
 
@@ -21,8 +21,13 @@ namespace AM.ApplicationCore.Domain
 
         public int EstimatedDuration { get; set; }
 
-        public List<Passenger> Passengers { get; set; }
+        public ICollection<Passenger> Passengers { get; set; }
 
-        public Plane plane { get; set; }
+        public Plane Plane { get; set; }
+
+        public override string ToString()
+        {
+            return "destination="+Destination;
+        }
     }
 }
