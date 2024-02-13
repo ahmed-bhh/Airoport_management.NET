@@ -18,5 +18,9 @@ Console.WriteLine(plane);
 Console.WriteLine("*********partie2*********");
 FlightMethods fm=new FlightMethods();
 fm.Flights = TestData.listFlights;
-fm.GetFlightDates("Madrid");
+/*fm.GetFlightDates("Madrid");
 fm.GetFlights("destination", "Paris");
+*/
+
+//fm.ShowFlightDetails(TestData.BoingPlane);
+Console.WriteLine(fm.ProgrammedFlightNumber(new DateTime(2021, 12, 31)));
