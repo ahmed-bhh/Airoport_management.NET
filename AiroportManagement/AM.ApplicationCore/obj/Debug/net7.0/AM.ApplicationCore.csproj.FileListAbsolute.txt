@@ -21,3 +21,4 @@ C:\Users\ahmed\Documents\GitHub\Airoport_management.NET\AiroportManagement\AM.Ap
 C:\Users\ahmed\Documents\GitHub\Airoport_management.NET\AiroportManagement\AM.ApplicationCore\obj\Debug\net7.0\refint\AM.ApplicationCore.dll
 C:\Users\ahmed\Documents\GitHub\Airoport_management.NET\AiroportManagement\AM.ApplicationCore\obj\Debug\net7.0\AM.ApplicationCore.pdb
 C:\Users\ahmed\Documents\GitHub\Airoport_management.NET\AiroportManagement\AM.ApplicationCore\obj\Debug\net7.0\ref\AM.ApplicationCore.dll
+C:\Users\ahmed\Documents\GitHub\Airoport_management.NET\AiroportManagement\AM.ApplicationCore\obj\Debug\net7.0\AM.ApplicationCore.csproj.AssemblyReference.cache
