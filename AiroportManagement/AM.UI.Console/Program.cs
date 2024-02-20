@@ -4,6 +4,7 @@ using AM.ApplicationCore.Services;
 
 Console.WriteLine("Hello, World!");
 
+Passenger p1 = new Passenger() { FirstName="amina",LastName="Aoun",EmailAdress="ahmed@esprit.tn"};
 
 Plane plane = new Plane();
 plane.Capacity = 100;
@@ -24,3 +25,5 @@ fm.GetFlights("destination", "Paris");
 
 //fm.ShowFlightDetails(TestData.BoingPlane);
 Console.WriteLine(fm.ProgrammedFlightNumber(new DateTime(2021, 12, 31)));
+p1.UpperFullName();
+Console.WriteLine(p1.FirstName+"/t"+p1.LastName);

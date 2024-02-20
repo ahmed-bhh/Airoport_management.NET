@@ -39,6 +39,10 @@ namespace AM.ApplicationCore.Services
 
             dates = from f in Flights where f.Destination == destination
                     select f.FlightDate;
+
+            dates=Flights.Where(f=>f.Destination == destination)
+                         .Select(f=>f.FlightDate)
+                         .ToList();
             return dates;
         }
 
@@ -79,10 +83,14 @@ namespace AM.ApplicationCore.Services
             var details=from f in Flights
                         where f.Plane == plane
                         select new { f.FlightDate, f.Destination };
+
+            var req2 = Flights.Where(f => f.Plane == plane)
+                              .Select(f=>new { f.FlightDate, f.Destination });
             foreach(var f in details)
             {
                 Console.WriteLine(f.ToString());
             }
+
 
         }
 
@@ -94,6 +102,8 @@ namespace AM.ApplicationCore.Services
             var res = from f in Flights
                       where (f.FlightDate - startDate).TotalDays <= 7 && (f.FlightDate - startDate).TotalDays > 0
                       select f;
+            var res2 = Flights.Where(f => DateTime.Compare(startDate, f.FlightDate)<0 && (f.FlightDate-startDate).TotalDays<7);
+
             return res.Count() ;
         }
 
@@ -102,12 +112,16 @@ namespace AM.ApplicationCore.Services
             var des = from f in Flights
                       where f.Destination == destination
                       select f.EstimatedDuration;
+
+            var req2 = Flights.Where(f => f.Destination == destination)
+                              .Average(f => f.EstimatedDuration);
            return des.Average();
         }
        public IEnumerable<Flight> OrderedDurationFligh()
         {
 
            var flights = from f in Flights orderby f.EstimatedDuration  select f;
+            var flights2=Flights.OrderByDescending(f => f.EstimatedDuration);
             return flights;
         }
         public IEnumerable<Passenger> SenarioTravellers(Flight flight) {
@@ -115,6 +129,8 @@ namespace AM.ApplicationCore.Services
             var res = from t in flight.Passengers.OfType<Traveller>()
                       orderby t.BirthDate
                       select t;
+            var res2 = flight.Passengers.OfType<Traveller>().OrderBy(t => t.BirthDate);
+
             return res.Take(3);
 
         }
@@ -122,6 +138,8 @@ namespace AM.ApplicationCore.Services
         {
             var req = from f in Flights
                       group f by f.Destination;
+
+            var req2 = Flights.GroupBy(f => f.Destination);
 
             return req;
         }
