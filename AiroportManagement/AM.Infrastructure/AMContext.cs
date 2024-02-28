@@ -1,4 +1,6 @@
 ﻿using AM.ApplicationCore.Domain;
+using AM.Infrastructure.Configurations;
+using AM.Infrastructure.Migrations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,29 @@ namespace AM.Infrastructure
                                          MultipleActiveResultSets=true");
             base.OnConfiguring(optionsBuilder);
         }
+        //fluentApi
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //   modelBuilder.ApplyConfiguration(new PlaneConfiguration()); methode 1 par classe de configuration
+
+            //methode 2 sans classe
+            modelBuilder.Entity<Plane>().HasKey(p => p.PlaneId);
+            modelBuilder.Entity<Plane>().ToTable("MyPlanes");
+            modelBuilder.Entity<Plane>().Property(p => p.Capacity).HasColumnName("PlaneCapacity");
+
+
+            modelBuilder.ApplyConfiguration(new FlightConfiguration());
+            base.OnModelCreating(modelBuilder);
+        }
+
+        //convention
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder.Properties<DateTime>().HaveColumnType("date");
+            base.ConfigureConventions(configurationBuilder);
+        }
+
+
 
         //Regle de Mapping Fluent API
         //Conventions relatives a tout le modele 
