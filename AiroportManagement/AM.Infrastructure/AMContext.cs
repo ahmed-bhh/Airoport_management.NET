@@ -1,6 +1,6 @@
 ﻿using AM.ApplicationCore.Domain;
 using AM.Infrastructure.Configurations;
-using AM.Infrastructure.Migrations;
+//using AM.Infrastructure.Migrations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +20,7 @@ namespace AM.Infrastructure
         public DbSet<Traveller> Traverllers { get; set; }
 
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
 
 
@@ -29,6 +30,7 @@ namespace AM.Infrastructure
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;
                                         Initial Catalog=ahmedDB;Integrated Security=true;
                                          MultipleActiveResultSets=true");
+          //  optionsBuilder.UseLa; ma habech yahbet proxies
             base.OnConfiguring(optionsBuilder);
         }
         //fluentApi
@@ -42,7 +44,29 @@ namespace AM.Infrastructure
             modelBuilder.Entity<Plane>().Property(p => p.Capacity).HasColumnName("PlaneCapacity");
 
 
-            modelBuilder.ApplyConfiguration(new FlightConfiguration());
+           // modelBuilder.ApplyConfiguration(new FlightConfiguration());
+
+            //configuration le type  detenu (firstname + lastname= (Fullname))
+            modelBuilder.Entity<Passenger>().OwnsOne(p => p.FullName);
+
+
+            //configurer heritage tabel per hierarchy
+            /* 
+              modelBuilder.Entity<Passenger>().HasDiscriminator<int>("IsTraveller")
+                                             .HasValue<Passenger>(0)
+                                             .HasValue<Staff>(2)
+                                             .HasValue<Traveller>(1);
+            */
+
+            //configurer l heritage table per type
+            modelBuilder.Entity<Staff>().ToTable("Staffs");
+            modelBuilder.Entity<Traveller>().ToTable("Travellers");
+
+
+            //configurer la cle primaire de Ticket
+
+            modelBuilder.Entity<Ticket>().HasKey(t =>new {t.FlightFK,t.PassengerFK});
+
             base.OnModelCreating(modelBuilder);
         }
 

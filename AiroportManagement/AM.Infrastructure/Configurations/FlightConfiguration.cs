@@ -14,7 +14,9 @@ namespace AM.Infrastructure.Configurations
         public void Configure(EntityTypeBuilder<Flight> builder)
         {
             //configuration de la relation ManyToMany *--*  baad el configuration nemchi l AMContext.cs bech nzidha
-            builder.HasMany(f => f.Passengers).WithMany(p => p.Flights).UsingEntity(t => t.ToTable("Reservations"));
+          
+            //hatitou f commentaire akhater walit nestaaml f class ticket
+            /*  builder.HasMany(f => f.Passengers).WithMany(p => p.Flights).UsingEntity(t => t.ToTable("Reservations"));
             
             builder.HasOne(f => f.Plane)
            .WithMany(p => p.Flights)
@@ -22,7 +24,7 @@ namespace AM.Infrastructure.Configurations
            .OnDelete(DeleteBehavior.Cascade)
            .IsRequired();
 
-
+            */
         }
     }
 }

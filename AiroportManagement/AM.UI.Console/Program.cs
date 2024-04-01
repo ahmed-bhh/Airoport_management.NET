@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AM.ApplicationCore.Domain;
 using AM.ApplicationCore.Services;
+using AM.Infrastructure;
 
 Console.WriteLine("Hello, World!");
 
-Passenger p1 = new Passenger() { FirstName="amina",LastName="Aoun",EmailAdress="ahmed@esprit.tn"};
+Passenger p1 = new Passenger() { FullName = new FullName { FirstName = "amina", LastName = "Aoun" },EmailAdress="ahmed@esprit.tn"};
 
 Plane plane = new Plane();
 plane.Capacity = 100;
@@ -26,4 +27,28 @@ fm.GetFlights("destination", "Paris");
 //fm.ShowFlightDetails(TestData.BoingPlane);
 Console.WriteLine(fm.ProgrammedFlightNumber(new DateTime(2021, 12, 31)));
 p1.UpperFullName();
-Console.WriteLine(p1.FirstName+"/t"+p1.LastName);
+Console.WriteLine(p1.FullName.FirstName+"/t"+p1.FullName.LastName);
+
+//insertion dans la bade de donnees
+
+AMContext ctx=new AMContext();
+/*
+ctx.Planes.Add(TestData.Airbusplane);
+ctx.Planes.Add(TestData.BoingPlane);
+ctx.FLights.Add(TestData.flight1);
+ctx.FLights.Add(TestData.flight2);
+
+ctx.SaveChanges();//mouhema hedhi
+*/
+Console.WriteLine("ajout avec succés");
+
+//afficher le contenu
+
+foreach (Flight fl in ctx.FLights)
+{
+   //hedhi taame mochkla proxies //Console.WriteLine(fl.FlightDate + " destination " + fl.Destination + " plance capacity " + fl.Plane.Capacity);
+    Console.WriteLine(fl.FlightDate + " destination " + fl.Destination );
+
+}
+
+

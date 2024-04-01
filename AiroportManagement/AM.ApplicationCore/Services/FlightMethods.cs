@@ -124,7 +124,7 @@ namespace AM.ApplicationCore.Services
             var flights2=Flights.OrderByDescending(f => f.EstimatedDuration);
             return flights;
         }
-        public IEnumerable<Passenger> SenarioTravellers(Flight flight) {
+      /*  public IEnumerable<Passenger> SenarioTravellers(Flight flight) {
 
             var res = from t in flight.Passengers.OfType<Traveller>()
                       orderby t.BirthDate
@@ -133,7 +133,7 @@ namespace AM.ApplicationCore.Services
 
             return res.Take(3);
 
-        }
+        }*/
         public IEnumerable<IGrouping<string, Flight>> DestinationGroupedFlights()
         {
             var req = from f in Flights
