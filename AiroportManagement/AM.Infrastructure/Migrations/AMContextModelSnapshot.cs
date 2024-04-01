@@ -52,7 +52,7 @@ namespace AM.Infrastructure.Migrations
 
                     b.HasIndex("PlaneFK");
 
-                    b.ToTable("FLights");
+                    b.ToTable("FLights", (string)null);
                 });
 
             modelBuilder.Entity("AM.ApplicationCore.Domain.Passenger", b =>
@@ -87,7 +87,7 @@ namespace AM.Infrastructure.Migrations
 
                     b.HasKey("PassportNumber");
 
-                    b.ToTable("Passengers");
+                    b.ToTable("Passengers", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Passenger");
 

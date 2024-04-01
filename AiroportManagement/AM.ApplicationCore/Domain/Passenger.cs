@@ -19,6 +19,9 @@ namespace AM.ApplicationCore.Domain
         public string Photo {  get; set;}
         [MinLength(3, ErrorMessage = "3 caractere minimum")]
         [MaxLength(25, ErrorMessage = "25 caractere maximum")]
+
+
+
         public string FirstName { get; set; }
 
         public string LastName { get; set;}
