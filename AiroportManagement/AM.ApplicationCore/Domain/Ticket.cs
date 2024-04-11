@@ -15,11 +15,11 @@ namespace AM.ApplicationCore.Domain
 
         public Boolean VIP { get; set; }
 
-        public Passenger Passenger { get; set; }
+        public virtual Passenger Passenger { get; set; }
         [ForeignKey("Passenger")]
         public string PassengerFK { get; set; }
 
-        public Flight Flight { get; set; }
+        public virtual Flight Flight { get; set; }
         [ForeignKey("Flight")]
         public int FlightFK { get; set; }
 

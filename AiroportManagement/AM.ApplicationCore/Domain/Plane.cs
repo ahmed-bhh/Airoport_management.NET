@@ -23,7 +23,8 @@ namespace AM.ApplicationCore.Domain
 
         public PlaneType PlaneType { get; set; }
 
-        public List<Flight> Flights { get; set;}
+        public virtual
+            List<Flight> Flights { get; set;}
 
         public override string ToString()
         {

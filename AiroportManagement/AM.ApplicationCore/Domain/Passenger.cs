@@ -31,7 +31,7 @@ namespace AM.ApplicationCore.Domain
 
        // public List<Flight> Flights { get; set; }// hedhi nahineha akhater snaana ahna el relation b class samineha Ticket
 
-        public ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
 
     }
 }

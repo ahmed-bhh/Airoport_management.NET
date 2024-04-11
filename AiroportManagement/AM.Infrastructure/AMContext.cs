@@ -30,7 +30,7 @@ namespace AM.Infrastructure
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;
                                         Initial Catalog=ahmedDB;Integrated Security=true;
                                          MultipleActiveResultSets=true");
-          //  optionsBuilder.UseLa; ma habech yahbet proxies
+            optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
         //fluentApi

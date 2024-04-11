@@ -46,9 +46,11 @@ Console.WriteLine("ajout avec succés");
 
 foreach (Flight fl in ctx.FLights)
 {
-   //hedhi taame mochkla proxies //Console.WriteLine(fl.FlightDate + " destination " + fl.Destination + " plance capacity " + fl.Plane.Capacity);
-    Console.WriteLine(fl.FlightDate + " destination " + fl.Destination );
+   Console.WriteLine(fl.FlightDate + " destination " + fl.Destination + " plance capacity " + fl.Plane.Capacity);
+   // Console.WriteLine(fl.FlightDate + " destination " + fl.Destination );
 
 }
+
+
 
 

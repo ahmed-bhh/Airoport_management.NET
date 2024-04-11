@@ -22,9 +22,9 @@ namespace AM.ApplicationCore.Domain
 
         public int EstimatedDuration { get; set; }
 
-        public ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
 
-        public Plane Plane { get; set; }
+        public virtual Plane Plane { get; set; }
         [ForeignKey("Plane")]
         public int PlaneFK { get; set; }
 
