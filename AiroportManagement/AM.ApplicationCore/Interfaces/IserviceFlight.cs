@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Interfaces
 {
-    public interface IserviceFlight
+    public interface IserviceFlight:IService<Flight>
     {
-        void Add(Flight f);
-        void Delete(Flight f);
-        IEnumerable<Flight> GetAll();
+        
     }
 }

@@ -9,28 +9,10 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Services
 {
-    public class ServiceFlight : IserviceFlight
+    public class ServiceFlight : Service<Flight>, IserviceFlight
     {
-        DbContext ctx;
-
-        public ServiceFlight(DbContext ctx)
+        public ServiceFlight(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-         //   this.ctx = ctx;//min 16:28
-        }
-
-        public void Add(Flight f)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Flight f)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Flight> GetAll()
-        {
-            throw new NotImplementedException();
         }
     }
 }

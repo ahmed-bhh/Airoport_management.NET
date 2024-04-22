@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Interfaces
 {
-    public interface IServicePlane
+    public interface IServicePlane:IService<Plane>
     {
-        void Add(Plane p);
-        void Delete(Plane p);
-        IEnumerable<Plane> GetAll();
+        
 
     }
 }

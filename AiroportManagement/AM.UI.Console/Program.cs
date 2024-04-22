@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AM.ApplicationCore.Domain;
+using AM.ApplicationCore.Interfaces;
 using AM.ApplicationCore.Services;
 using AM.Infrastructure;
 
@@ -40,11 +41,25 @@ ctx.FLights.Add(TestData.flight2);
 
 ctx.SaveChanges();//mouhema hedhi
 */
+IUnitOfWork uow = new UnitOfWork(ctx);
+IServicePlane sp = new ServicePlane(uow);
+IserviceFlight sf = new ServiceFlight(uow);
+//ctx.Set<Plane>().Add(TestData.BoingPlane);
+sp.Add(TestData.BoingPlane);
+sp.Add(TestData.Airbusplane);
+sf.Add(TestData.flight1);
+sf.Add(TestData.flight2);
+sf.Commit();
+
+
+
+
+
 Console.WriteLine("ajout avec succés");
 
 //afficher le contenu
 
-foreach (Flight fl in ctx.FLights)
+foreach (Flight fl in sf.GetMany())
 {
    Console.WriteLine(fl.FlightDate + " destination " + fl.Destination + " plance capacity " + fl.Plane.Capacity);
    // Console.WriteLine(fl.FlightDate + " destination " + fl.Destination );
