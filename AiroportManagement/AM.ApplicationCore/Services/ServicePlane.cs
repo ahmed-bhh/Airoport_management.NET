@@ -38,5 +38,29 @@ namespace AM.ApplicationCore.Services
         public ServicePlane(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
+
+        public void DeletePlanes()
+        {
+            Delete(p => (DateTime.Now - p.ManufactureDate).TotalDays > 3650);
+        }
+
+        public IEnumerable<Flight> GetFlights(int n)
+        {
+             return GetMany().OrderByDescending(p => p.PlaneType).Take(n).SelectMany(p=>p.Flights).OrderBy(f=>f.FlightDate);//min 31
+        }
+
+        public IEnumerable<Traveller> GetPassengers(Plane p)//min 27:40 video 9
+        {
+           return p.Flights.SelectMany(f=>f.Tickets)//selectmany akhater tableau de tickets 
+                           .Select(t=>t.Passenger).OfType<Traveller>();//select khater passenger wehed
+        }
+
+        public bool ISAvailableFlight(int n, Flight flight)
+        {
+            if (flight.Plane.Capacity >= flight.Tickets.Count + n) {
+                return true;            
+            }
+            return false;
+        }
     }
 }
