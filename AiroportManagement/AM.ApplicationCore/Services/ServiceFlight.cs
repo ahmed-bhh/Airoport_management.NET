@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Services
 {
-    public class ServiceFlight : Service<Flight>, IserviceFlight
+    public class ServiceFlight : Service<Flight>, IserviceFlight// theni haja nzid service flight bech njib el crud lkol
     {
         public ServiceFlight(IUnitOfWork unitOfWork) : base(unitOfWork)
         {

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Interfaces
 {
-    public interface IserviceFlight:IService<Flight>
+    public interface IserviceFlight:IService<Flight>//awel haja nasna3 l interface flight w naamel heritage bil interface Iservice
     {
-        
+        //houni nzid les services spécifique
     }
 }

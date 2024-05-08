@@ -1,4 +1,5 @@
-﻿using AM.ApplicationCore.Interfaces;
+﻿using AM.ApplicationCore.Domain;
+using AM.ApplicationCore.Interfaces;
 using AM.ApplicationCore.Services;
 using AM.Infrastructure;
 using Microsoft.AspNetCore.Http;
@@ -8,13 +9,26 @@ namespace AM.UI.Web.Controllers
 {
     public class FlightController : Controller
     {
-       static AMContext ctx=new AMContext();
-       static IUnitOfWork uow=new UnitOfWork(ctx);
-        IserviceFlight sf=new ServiceFlight(uow);
-        // GET: FlightController
-        public ActionResult Index()//wkeft houni seance 9 kamaltha
+        //hedhom zouz mchina hatinehom fil program.cs
+        //static AMContext ctx=new AMContext();
+        // static IUnitOfWork uow=new UnitOfWork(ctx);
+
+
+        // IserviceFlight sf=new ServiceFlight(uow);
+        IserviceFlight sf;
+
+        public FlightController(IserviceFlight sf)
         {
-            return View(sf.GetMany());
+            this.sf = sf;
+        }
+
+        // GET: FlightController
+        public ActionResult Index(DateTime? dateDepart)//wkeft houni seance 9 kamaltha
+        {
+            if (dateDepart == null)
+                return View(sf.GetMany());
+            else
+                return View(sf.GetMany(f=>f.FlightDate==dateDepart));
         }
 
         // GET: FlightController/Details/5
@@ -32,10 +46,12 @@ namespace AM.UI.Web.Controllers
         // POST: FlightController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Flight collection)//kent fama IFormCollection nbadalha b Flight
         {
             try
             {
+                sf.Add(collection);
+                sf.Commit();
                 return RedirectToAction(nameof(Index));
             }
             catch
