@@ -4,6 +4,8 @@ using AM.ApplicationCore.Services;
 using AM.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualBasic;
 
 namespace AM.UI.Web.Controllers
 {
@@ -16,10 +18,12 @@ namespace AM.UI.Web.Controllers
 
         // IserviceFlight sf=new ServiceFlight(uow);
         IserviceFlight sf;
+        IServicePlane sp;//hachti beha l liste deroulente fil create
 
-        public FlightController(IserviceFlight sf)
+        public FlightController(IserviceFlight sf, IServicePlane sp)
         {
             this.sf = sf;
+            this.sp = sp;
         }
 
         // GET: FlightController
@@ -40,6 +44,8 @@ namespace AM.UI.Web.Controllers
         // GET: FlightController/Create
         public ActionResult Create()
         {
+             ViewBag.listPlanes = new SelectList(sp.GetMany(), "PlaneId", "Information");//nafs el hkeya ama aamlt propriete fil domaine plane esmha information
+            // ViewBag.listPlanes = new SelectList(sp.GetMany(), "PlaneId", "ManufactureDate");//houni aaamlt liste w bech nabaathha lil create.cshtml bech nselecti chneya el plane par date de depart
             return View();
         }
 

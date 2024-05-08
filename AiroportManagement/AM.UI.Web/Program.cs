@@ -6,11 +6,13 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<DbContext, AMContext>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddSingleton<Type>(t => typeof(GenericRepository<>));
+builder.Services.AddControllersWithViews();//hedhi dima mawjouda
+builder.Services.AddDbContext<DbContext, AMContext>();//hedhi dima mawjouda
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();//hedhi dima mawjouda
+builder.Services.AddSingleton<Type>(t => typeof(GenericRepository<>));//hedhi dima mawjouda
 builder.Services.AddScoped<IserviceFlight,ServiceFlight>();
+builder.Services.AddScoped<IServicePlane, ServicePlane>();//etape 2
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
