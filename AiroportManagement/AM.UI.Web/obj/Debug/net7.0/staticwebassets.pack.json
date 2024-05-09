@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\ahmed\\Documents\\GitHub\\Airoport_management.NET\\AiroportManagement\\AM.UI.Web\\wwwroot\\uploads\\tunisair.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tunisair.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AM.UI.Web.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

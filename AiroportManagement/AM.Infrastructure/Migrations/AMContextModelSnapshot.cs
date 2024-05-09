@@ -48,6 +48,9 @@ namespace AM.Infrastructure.Migrations
                     b.Property<DateTime>("FlightDate")
                         .HasColumnType("date");
 
+                    b.Property<string>("Pilot")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("PlaneFK")
                         .HasColumnType("int");
 

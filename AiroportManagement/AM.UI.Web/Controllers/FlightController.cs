@@ -38,11 +38,11 @@ namespace AM.UI.Web.Controllers
         // GET: FlightController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(sf.GetById(id));
         }
 
         // GET: FlightController/Create
-        public ActionResult Create()
+        public ActionResult Create()//video 10 kemlet houni
         {
              ViewBag.listPlanes = new SelectList(sp.GetMany(), "PlaneId", "Information");//nafs el hkeya ama aamlt propriete fil domaine plane esmha information
             // ViewBag.listPlanes = new SelectList(sp.GetMany(), "PlaneId", "ManufactureDate");//houni aaamlt liste w bech nabaathha lil create.cshtml bech nselecti chneya el plane par date de depart
@@ -52,10 +52,31 @@ namespace AM.UI.Web.Controllers
         // POST: FlightController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Flight collection)//kent fama IFormCollection nbadalha b Flight
+        public ActionResult Create(Flight collection,IFormFile PilotImage)//kent fama IFormCollection nbadalha b Flight
         {
             try
             {
+                
+
+                //lezm taswira nhotha fi dossier hedheka aleh
+                //sna3na dossier esmou uploads ta7t wwwroot
+                if (PilotImage != null)
+
+                {
+                    //nrecupri esm el fichier w nhotou fil attribut Pilot
+                    collection.Pilot = PilotImage.FileName;
+
+                    //njib el path
+                    var path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot", "uploads", PilotImage.FileName);
+
+                    Stream stream = new FileStream(path, FileMode.Create);
+
+                    PilotImage.CopyTo(stream);
+
+                    collection.Pilot = PilotImage.FileName;
+
+                }
+
                 sf.Add(collection);
                 sf.Commit();
                 return RedirectToAction(nameof(Index));
@@ -67,18 +88,22 @@ namespace AM.UI.Web.Controllers
         }
 
         // GET: FlightController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id)//hedhi taffichi ama ma tmodifich 
         {
-            return View();
+            ViewBag.listPlanes = new SelectList(sp.GetMany(), "PlaneId", "Information");//nafs el hkeya ama aamlt propriete fil domaine plane esmha information
+
+            return View(sf.GetById(id));
         }
 
         // POST: FlightController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Flight collection)//hedhi nconfigureha bech nbadel haja tetbadel berrasmi khater eli foukha t affichi khw
         {
             try
             {
+                sf.Update(collection);
+                sf.Commit();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -90,22 +115,30 @@ namespace AM.UI.Web.Controllers
         // GET: FlightController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(sf.GetById(id));
         }
 
         // POST: FlightController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Flight collection)
         {
             try
             {
+                //ki bech naamel delete nnadilha id ama fil update bara arja3 thabet to talka rouhek meedi collection mouch id
+                sf.Delete(sf.GetById(id)); 
+                sf.Commit();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
             }
+        }
+        public ActionResult Sort()
+        {
+            return View(sf.SortFlights());
+
         }
     }
 }

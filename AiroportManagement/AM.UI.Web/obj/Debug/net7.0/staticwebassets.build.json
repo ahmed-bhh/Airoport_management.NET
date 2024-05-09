@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ceva1cCNeRIn6EFFU0+U72wbveQa8WxME2/k5+37IPU=",
+  "Hash": "IhqaUwtMyrrfMu0LObJZYeBJHHv5GstOAIBpzD0jcwg=",
   "Source": "AM.UI.Web",
   "BasePath": "_content/AM.UI.Web",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\ahmed\\Documents\\GitHub\\Airoport_management.NET\\AiroportManagement\\AM.UI.Web\\wwwroot\\uploads\\tunisair.jpg",
+      "SourceId": "AM.UI.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ahmed\\Documents\\GitHub\\Airoport_management.NET\\AiroportManagement\\AM.UI.Web\\wwwroot\\",
+      "BasePath": "_content/AM.UI.Web",
+      "RelativePath": "uploads/tunisair.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\tunisair.jpg"
     }
   ]
 }

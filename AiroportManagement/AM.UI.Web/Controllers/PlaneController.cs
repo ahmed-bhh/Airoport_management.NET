@@ -24,7 +24,7 @@ namespace AM.UI.Web.Controllers
         // GET: PlaneController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(sf.GetById(id));
         }
 
         // GET: PlaneController/Create

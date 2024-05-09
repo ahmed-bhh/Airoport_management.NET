@@ -16,7 +16,7 @@
         <input type="datetime" name="dateDepart" />
 
         <input type="submit" value="Serach" />
-
+        <input type="submit" value="Sort" asp-controller="Flight" asp-action="Sort" />
     </fieldset>
 
 </form>
@@ -74,10 +74,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PlaneFK)
             </td>
+                <td>
+
+                    <img src="~/uploads/@item.Pilot" width="50" height="50">
+
+                </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {  id=item.FlightId  }) |
+                <a  asp-action="Edit" asp-route-id="@item.FlightId">edit par html</a>
+                    @Html.ActionLink("Details", "Details", new { id = item.FlightId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FlightId })
+                    <a asp-controller="Plane" asp-action="Details" asp-route-id="@item.PlaneFK">PlaneDetails</a>
             </td>
         </tr>
 }
